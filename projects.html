@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Portfolio</title>
+    <style>
+        .navbar {
+            background-color: white !important;
+        }
+        .navbar a:hover {
+            border-bottom: 0.4em solid gray !important;
+        }
+        .active {
+            border-bottom: 0.2em solid gray;
+        }
+        #myBtnContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 2em;
+        }
+        #myBtnContainer .btn {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .project-list img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- header --> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./portfolio.html">Soliday Ek</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link active" href="portfolio.html#about">ABOUT</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PROJECT</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">School Projects</a>
+                        <a class="dropdown-item" href="#">Personal Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html#contact">CONTACT</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html" target='blank'>BLOG</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Filter buttons -->
+    <div class='container' id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">All Projects</button>
+        <button class="btn" onclick="filterSelection('school')">School Projects</button>
+        <button class="btn" onclick="filterSelection('personal')">Personal Projects</button>
+    </div>
+
+    <!-- Projects -->
+    <div class='container'>
+        <div class='row'>
+            <!-- School Projects -->
+            <div class="col-md-4 project-list school all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/palindrome" target='blank'>Palindrome</a></p>
+            </div>
+            <div class="col-md-4 project-list school all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/Ooshi-Restaurant-OnlineOrdering" target='blank'>Online Ordering</a></p>
+            </div>
+            <div class="col-md-4 project-list school all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/bank-account" target='blank'>Bank Account</a></p>
+            </div>
+            <div class="col-md-4 project-list school all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/Quadratic-Formula-Calculator-" target='blank'>Quadratic Formula</a></p>
+            </div>
+            
+            <!-- Personal Projects -->
+            <div class="col-md-4 project-list personal all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/Movie-Review-Sentiment-Analysis-with-Numpy" target='blank'>Movie Review Sentiment Analysis</a></p>
+            </div>
+            <div class="col-md-4 project-list personal all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://github.com/solidayek/Fake-News-Detection-" target='blank'>Fake News Detection</a></p>
+            </div>
+            <div class="col-md-4 project-list personal all show">
+                <img src="pic1.jpeg" alt="Card image cap">
+                <p class='project-title'><a href="https://www.canva.com/design/DAGirWpRTiA/u6-2H9xEtnwAkGfeJSFc9g/edit?utm_content=DAGirWpRTiA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target='blank'>Healthcare in Blockchain</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        filterSelection("all");
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("project-list");
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.remove("show");
+                if (x[i].classList.contains(c) || c === "all") {
+                    x[i].classList.add("show");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
